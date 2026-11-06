@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saloni Singh | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #d6ad60;
+    --light-gold: #f0d69c;
+    --black: #080808;
+    --dark: #111111;
+    --grey: #aaaaaa;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* INTRO LOADER */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #080808;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: disappear 1s ease 1.5s forwards;
+}
+
+.loader h1 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 55px;
+    letter-spacing: 8px;
+    animation: fade 1.2s infinite alternate;
+}
+
+@keyframes fade {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+@keyframes disappear {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* NAVBAR */
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(214,173,96,0.15);
+}
+
+.logo {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 27px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu {
+    display: none;
+    color: var(--gold);
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* COMMON SECTION */
+
+section {
+    padding: 110px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.section-title p {
+    color: var(--grey);
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+/* HERO */
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding-top: 150px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text .small {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 8vw, 95px);
+    line-height: 1;
+    font-weight: 500;
+}
+
+.hero-text h1 span {
+    color: var(--gold);
+}
+
+.hero-text h3 {
+    margin-top: 25px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #cccccc;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    margin-top: 18px;
+    color: var(--grey);
+    line-height: 1.9;
+    font-size: 14px;
+    max-width: 480px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 13px 28px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+.hero-image {
+    flex: 0 0 330px;
+    height: 430px;
+    border: 1px solid var(--gold);
+    padding: 12px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(15%);
+}
+
+/* HOBBIES */
+
+#hobbies {
+    background: var(--dark);
+}
+
+.hobby-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.hobby-card {
+    border: 1px solid rgba(214,173,96,0.35);
+    padding: 45px 25px;
+    text-align: center;
+    transition: 0.4s;
+    background: #151515;
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 35px rgba(214,173,96,0.1);
+}
+
+.hobby-icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.hobby-card h3 {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.hobby-card p {
+    color: var(--grey);
+    font-size: 13px;
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+/* SKILLS */
+
+#skills {
+    background: var(--black);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.skill-card {
+    background: #121212;
+    border: 1px solid rgba(214,173,96,0.25);
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.skill-card p {
+    color: var(--grey);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.skill-list {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skill-list span {
+    border: 1px solid rgba(214,173,96,0.4);
+    padding: 7px 12px;
+    font-size: 11px;
+    color: #ddd;
+}
+
+/* EDUCATION */
+
+#education {
+    background: var(--dark);
+}
+
+.timeline {
+    max-width: 750px;
+    margin: auto;
+    border-left: 1px solid var(--gold);
+    padding-left: 35px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+    background: #151515;
+    padding: 28px;
+    border: 1px solid rgba(214,173,96,0.25);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -42px;
+    top: 30px;
+    height: 13px;
+    width: 13px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.timeline-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--gold);
+}
+
+.timeline-item h4 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.timeline-item p {
+    color: var(--grey);
+    font-size: 12px;
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+.year {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* CONTACT */
+
+#contact {
+    background: var(--black);
+    text-align: center;
+}
+
+.contact-text {
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 550px;
+    margin: 0 auto 30px;
+}
+
+.email {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+}
+
+.contact-social {
+    margin-top: 35px;
+}
+
+.contact-social a {
+    color: var(--gold);
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 13px;
+}
+
+.contact-social a:hover {
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #050505;
+    border-top: 1px solid rgba(214,173,96,0.2);
+}
+
+footer p {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    section {
+        padding: 100px 7%;
+    }
+
+    #home {
+        gap: 35px;
+    }
+
+    .hero-image {
+        flex-basis: 280px;
+        height: 380px;
+    }
+}
+
+@media (max-width: 650px) {
+    .menu {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #101010;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        border-bottom: 1px solid var(--gold);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 130px;
+        gap: 40px;
+    }
+
+    .hero-image {
+        flex: none;
+        width: 260px;
+        height: 340px;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hobby-container,
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 40px;
+    }
+
+    .timeline {
+        padding-left: 25px;
+    }
+
+    .timeline-item::before {
+        left: -32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader">
+    <h1>SALONI.</h1>
+</div>
+
+<header>
+    <div class="logo">SALONI.</div>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+        <a href="#home" onclick="closeMenu()">HOME</a>
+        <a href="#hobbies" onclick="closeMenu()">HOBBIES</a>
+        <a href="#skills" onclick="closeMenu()">SKILLS</a>
+        <a href="#education" onclick="closeMenu()">EDUCATION</a>
+        <a href="#contact" onclick="closeMenu()">CONTACT</a>
+    </nav>
+</header>
+
+<!-- HOME SECTION -->
+
+<section id="home">
+
+    <div class="hero-text reveal">
+        <div class="small">WELCOME TO MY PORTFOLIO</div>
+
+        <h1>Hello,<br>I'm <span>Saloni.</span></h1>
+
+        <h3>BCA STUDENT | FUTURE TECH ENTHUSIAST</h3>
+
+        <p>
+            A curious learner with an interest in technology,
+            creativity and discovering new possibilities.
+            Currently pursuing my BCA journey at REVA University,
+            Bengaluru.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#education" class="btn">MY EDUCATION</a>
+            <a href="#contact" class="btn">CONTACT ME</a>
+        </div>
+    </div>
+
+    <div class="hero-image reveal">
+        <img src="photo.jpeg" alt="Saloni's photograph">
+    </div>
+
+</section>
+
+<!-- HOBBIES SECTION -->
+
+<section id="hobbies">
+
+    <div class="section-title reveal">
+        <h2>Beyond the Screen</h2>
+        <p>A FEW THINGS I ENJOY</p>
+    </div>
+
+    <div class="hobby-container">
+
+        <div class="hobby-card reveal">
+            <div class="hobby-icon">💃</div>
+            <h3>Dancing</h3>
+            <p>
+                A creative escape that lets me express myself
+                through movement and music.
+            </p>
+        </div>
+
+        <div class="hobby-card reveal">
+            <div class="hobby-icon">📱</div>
+            <h3>Doom Scrolling</h3>
+            <p>
+                Exploring the internet, discovering trends
+                and getting lost in interesting content.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS SECTION -->
+
+<section id="skills">
+
+    <div class="section-title reveal">
+        <h2>Skills & Interests</h2>
+        <p>MY LEARNING JOURNEY</p>
+    </div>
+
+    <div class="skills-container">
+
+        <div class="skill-card reveal">
+            <h3>Technical Skills</h3>
+            <p>Technologies and languages I am currently learning.</p>
+
+            <div class="skill-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>C Programming</span>
+                <span>JavaScript</span>
+            </div>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Areas of Interest</h3>
+            <p>Fields that inspire me to explore and learn more.</p>
+
+            <div class="skill-list">
+                <span>Cybersecurity</span>
+                <span>Ethical Hacking</span>
+                <span>Technology</span>
+                <span>Creative Learning</span>
+            </div>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Personal Qualities</h3>
+            <p>Qualities I bring to my learning and everyday work.</p>
+
+            <div class="skill-list">
+                <span>Curiosity</span>
+                <span>Creativity</span>
+                <span>Enthusiasm</span>
+                <span>Adaptability</span>
+            </div>
+        </div>
+
+        <div class="skill-card reveal">
+            <h3>Learning Mindset</h3>
+            <p>
+                Always willing to explore new ideas,
+                develop skills and improve through experience.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- EDUCATION SECTION -->
+
+<section id="education">
+
+    <div class="section-title reveal">
+        <h2>Education</h2>
+        <p>MY ACADEMIC JOURNEY</p>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item reveal">
+            <div class="year">2026 - PRESENT</div>
+            <h3>Bachelor of Computer Applications</h3>
+            <h4>REVA University, Bengaluru</h4>
+            <p>
+                Currently pursuing BCA with an interest in
+                technology, cybersecurity and computer applications.
+            </p>
+        </div>
+
+        <div class="timeline-item reveal">
+            <div class="year">CLASS XII</div>
+            <h3>Senior Secondary Education</h3>
+            <h4>CBSE Board</h4>
+            <p>
+                Completed Class XII with 86.2%.
+                Subjects included Physics, Chemistry and Biology.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section id="contact">
+
+    <div class="section-title reveal">
+        <h2>Let's Connect</h2>
+        <p>GET IN TOUCH</p>
+    </div>
+
+    <p class="contact-text reveal">
+        I'm always open to connecting with people,
+        exchanging ideas and exploring new opportunities.
+        Feel free to reach out!
+    </p>
+
+    <a href="mailto:saloni798527@gmail.com" class="email reveal">
+        saloni798527@gmail.com
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 <span>SALONI SINGH</span> | DESIGNED WITH PURPOSE</p>
+</footer>
+
+<script>
+
+// MOBILE NAVIGATION
+
+function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+}
+
+function closeMenu() {
+    document.getElementById("navbar").classList.remove("show");
+}
+
+// SCROLL REVEAL ANIMATION
+
+function revealElements() {
+    const elements = document.querySelectorAll(".reveal");
+
+    elements.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+            element.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealElements);
+window.addEventListener("load", revealElements);
+
+</script>
+
+</body>
